@@ -16,3 +16,5 @@ marketplace/**
 README.md
 dist-old-artifact
 
+stale-*.vsix
+

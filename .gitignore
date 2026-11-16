@@ -9,3 +9,5 @@ docs/archive/
 
 dist-old-artifact
 
+stale-*.vsix
+
