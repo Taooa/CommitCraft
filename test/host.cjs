@@ -11,7 +11,7 @@ const { FieldEditorSession, editorStrings } = require('../out/field-editor-sessi
 const { legacyFields } = require('../out/fields');
 
 exports.run = async function () {
-  const extension = vscode.extensions.getExtension('local-tools.vscode-commit-helper');
+  const extension = vscode.extensions.getExtension('silaskael.commitcraft-git');
   assert.ok(extension, 'extension discovered');
   await extension.activate();
   assert.ok(extension.isActive, 'extension activated');
