@@ -1,0 +1,16 @@
+{
+  "displayName": "CommitCraft — Git Commit Message Builder",
+  "description": "Build consistent Git commit messages with guided input, customizable templates, and saved suggestions.",
+  "command.generate": "Compose Commit Message",
+  "command.quickGenerate": "Quick Generate (Step by Step)",
+  "configuration.title": "CommitCraft — Commit Message Settings",
+  "configuration.types": "Suggested commit types. Custom values can be entered during generation. These are commit content and are not translated automatically. When using custom fields, manage the corresponding values in Configure Commit Fields.",
+  "configuration.versions": "Suggested product versions. The version is not read from package.json automatically. When using custom fields, manage the corresponding values in Configure Commit Fields.",
+  "configuration.defaultVersion": "Default product version on first use. The most recent selection takes precedence. When using custom fields, manage the corresponding values in Configure Commit Fields.",
+  "configuration.modules": "Suggested modules. Custom values are allowed; multiple modules can be entered as a single value. When using custom fields, manage the corresponding values in Configure Commit Fields.",
+  "configuration.template": "Output template. Defaults to Conventional Commits: {type}({module}): {description}. Scope is optional. Manage custom field formatting in the field editor.",
+  "configuration.rememberLastValues": "Keep used types, versions and modules as suggestions per repository in this workspace, and preselect the latest values. Descriptions are not saved. Disable to stop reading and saving history.",
+  "command.configureFields": "Configure Commit Fields",
+  "configuration.fieldLayout": "Customize input fields and output format. Add, rename, reorder, disable or delete fields. null keeps the original four-field settings.",
+  "configuration.fieldLayoutLink": "Click [Open field editor](command:commitHelper.configureFields) to manage fields and the output template. Defaults to Type, optional Scope, and Description for Conventional Commits. Existing custom fields are preserved; choose Rule 1 or Rule 2 and Save to switch. JSON editing is for advanced configuration; null or {} uses the base settings."
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src {{csp}}; script-src 'nonce-{{nonce}}';">
+<title>CommitCraft</title><link rel="stylesheet" href="{{css}}"></head>
+<body><main aria-busy="true">
+  <header><div><p class="eyebrow">COMMITCRAFT</p><h1 data-i18n="title">Configure Commit Fields</h1><p class="muted" data-i18n="subtitle">Shape your commit flow. Keep everyday commits simple.</p></div></header>
+  <div class="scope-row"><label for="scope" data-i18n="scope">Save configuration to</label><select id="scope" disabled></select><span id="status" role="status" aria-live="polite"></span></div>
+  <p class="muted small" data-i18n="scopeHint"></p><p id="mode" class="notice"></p>
+  <p class="muted" data-i18n="help"></p>
+  <div class="rules"><button type="button" id="conventional" data-i18n="conventional" disabled>Rule 1 · Conventional Commits</button><button type="button" id="versioned" data-i18n="versioned" disabled>Rule 2 · Versioned commits</button></div>
+  <p class="muted small" data-i18n="rulesHint"></p>
+  <section id="fields" aria-label="Fields"></section>
+  <button type="button" id="add" data-i18n="add" disabled>Add field</button>
+  <section class="output"><label class="check"><input type="checkbox" id="automatic" checked><span data-i18n="automatic"></span></label><p class="muted small" id="auto-hint" data-i18n="autoHint"></p><div id="template-section" hidden><label for="template" data-i18n="template"></label><input id="template" type="text" spellcheck="false"><p class="muted small" data-i18n="templateHint"></p></div><h2 data-i18n="preview">Output preview</h2><pre id="preview" aria-live="polite"></pre><p class="muted small" data-i18n="previewHint"></p><p id="validation" class="error" role="alert"></p></section>
+  <p class="muted small" data-i18n="optionsHint"></p>
+  <div class="toolbar"><button type="button" id="reset" class="secondary" data-i18n="reset" disabled>Restore original fields</button><button type="button" id="reload" class="secondary" data-i18n="reload" disabled>Reload saved settings</button><button type="button" id="save" class="primary" data-i18n="save" disabled>Save changes</button></div>
+  <p id="feedback" role="status" aria-live="polite"></p><p class="muted small" data-i18n="resetHint"></p><p class="muted small" data-i18n="unsavedClose"></p>
+</main><script nonce="{{nonce}}" src="{{js}}"></script></body></html>

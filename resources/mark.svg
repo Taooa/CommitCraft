@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>CommitCraft — upward merging branch with checkmark</title>
+  <circle cx="256" cy="256" r="250" fill="#3459DB"/>
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M166 158v202" stroke-width="22"/>
+    <path d="M328 334v-14c0-62-162-34-162-96v-66" stroke-width="22"/>
+    <circle cx="166" cy="158" r="29" fill="#3459DB" stroke-width="20"/>
+    <circle cx="166" cy="360" r="29" fill="#3459DB" stroke-width="20"/>
+    <circle cx="328" cy="354" r="26" fill="#3459DB" stroke-width="20"/>
+    <path d="m270 143 25 26 52-56" stroke="#C7F4DE" stroke-width="22"/>
+  </g>
+</svg>

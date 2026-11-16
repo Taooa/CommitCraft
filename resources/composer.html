@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src {{csp}}; style-src {{csp}}; script-src 'nonce-{{nonce}}';">
+  <title>CommitCraft</title>
+  <link rel="stylesheet" href="{{css}}">
+</head>
+<body>
+  <main class="composer" aria-busy="true">
+    <header class="header">
+      <div class="brand"><img class="logo-dark" src="{{logo}}" alt="" width="42" height="42"><img class="logo-light" src="{{logoLight}}" alt="" width="42" height="42"><div><h1>CommitCraft <span class="brand-subtitle">Git 提交信息助手</span></h1><p>让每一次提交，清晰有序。</p></div></div>
+      <span class="version">v0.3.2</span>
+    </header>
+    <div class="repository"><span class="repo-symbol" aria-hidden="true">⑂</span><div class="repo-control"><label for="repository">当前仓库</label><select id="repository" disabled aria-describedby="repo-path"></select></div><span id="repo-mode" class="mode">Git</span></div>
+    <p id="repo-path" class="repo-path"></p>
+    <form id="commit-form" novalidate>
+      <section class="fields" aria-label="提交信息">
+        <div class="field full"><label for="type"><span class="number">01</span>提交类型</label><div id="type-options" class="chips type-chips" aria-label="类型候选"></div><input id="type" name="type" placeholder="选择上方类型，或输入自定义类型" required aria-describedby="type-error" autocomplete="off"><p class="field-error" id="type-error"></p></div>
+        <div class="field"><label for="version"><span class="number">02</span>产品版本</label><input id="version" name="version" placeholder="例如 4.8.0" required aria-describedby="version-error" autocomplete="off"><div id="version-options" class="chips" aria-label="用过的版本"></div><p class="field-error" id="version-error"></p></div>
+        <div class="field"><label for="module"><span class="number">03</span>所属模块</label><input id="module" name="module" placeholder="例如 图上调阅" required aria-describedby="module-error" autocomplete="off"><div id="module-options" class="chips" aria-label="用过的模块"></div><p class="field-error" id="module-error"></p></div>
+        <div class="field full"><label for="description"><span class="number">04</span>具体功能<span class="optional">描述这次做了什么</span></label><textarea id="description" name="description" rows="3" placeholder="例如：切换实时视频时关闭录像查询面板" required aria-describedby="description-error" spellcheck="false"></textarea><p class="field-error" id="description-error"></p></div>
+      </section>
+      <section class="preview" aria-labelledby="preview-label"><div class="preview-heading"><h2 id="preview-label"><span class="live-dot"></span>提交预览</h2><span id="character-count">0 字</span></div><p id="preview-message" class="preview-message empty">填写上方信息，即可预览提交描述</p><p id="template-error" class="field-error"></p></section>
+      <div class="actions"><span class="shortcut"><kbd id="shortcut-key">Ctrl</kbd> + <kbd>Enter</kbd><span id="shortcut-hint">快速填入</span></span><button type="button" id="copy" class="button secondary" disabled>复制信息</button><button type="submit" id="write" class="button primary" disabled><svg class="action-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v6m8 0V9.5C12 7 4 8 4 5"/><circle cx="4" cy="3.5" r="1.5"/><circle cx="4" cy="12.5" r="1.5"/><circle cx="12" cy="12.5" r="1.5"/><path d="m9 3 1.3 1.3L13 1.5"/></g></svg> 填入 Git 输入框</button></div>
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+      <footer><span id="history-note">用过的类型、版本和模块会自动保留</span><span>填写 · 预览 · 提交</span></footer>
+    </form>
+  </main>
+  <script nonce="{{nonce}}" src="{{js}}"></script>
+</body>
+</html>

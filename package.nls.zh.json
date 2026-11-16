@@ -1,0 +1,16 @@
+{
+  "displayName": "CommitCraft — Git 提交信息助手",
+  "description": "通过分步输入、自定义模板和历史候选，生成格式统一的 Git 提交信息。",
+  "command.generate": "编写提交信息",
+  "command.quickGenerate": "快速生成（分步输入）",
+  "configuration.title": "CommitCraft — 提交信息设置",
+  "configuration.types": "类型候选，可在填写时自定义。这些值属于提交内容，不会随界面语言自动翻译。 自定义字段启用后，请在配置提交字段中维护对应值。",
+  "configuration.versions": "产品版本候选，不自动读取 package.json。 自定义字段启用后，请在配置提交字段中维护对应值。",
+  "configuration.defaultVersion": "首次填写时的默认产品版本；最近选择优先。 自定义字段启用后，请在配置提交字段中维护对应值。",
+  "configuration.modules": "模块候选，可自定义；多个模块可填写在同一个值中。 自定义字段启用后，请在配置提交字段中维护对应值。",
+  "configuration.template": "输出模板，默认使用约定式提交：{type}({module}): {description}。模块可跳过。自定义字段的格式在配置页管理。",
+  "configuration.rememberLastValues": "按仓库在当前工作区保留用过的类型、版本和模块作为候选，并默认填入最近选择；不记住功能描述。关闭后不读取或保存使用记录。",
+  "command.configureFields": "配置提交字段",
+  "configuration.fieldLayout": "自定义填写字段与输出格式。可添加、修改、排序、停用和删除字段。null 表示沿用原有四项设置。",
+  "configuration.fieldLayoutLink": "点击 [打开字段配置页](command:commitHelper.configureFields) 管理字段和输出模板。默认按类型、模块（选填）、描述生成约定式提交；已有自定义配置保留，点击“规则1”或“规则2”并保存即可切换。下方 JSON 编辑仅供高级配置，null 或 {} 沿用基础设置。"
+}

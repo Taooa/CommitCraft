@@ -1,0 +1,323 @@
+{
+  "name": "vscode-commit-helper",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "1.0.0",
+  "icon": "resources/icon.png",
+  "galleryBanner": {
+    "color": "#3459DB",
+    "theme": "dark"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "commit message",
+    "commit template",
+    "CommitCraft",
+    "提交信息",
+    "提交匠",
+    "提交规范"
+  ],
+  "publisher": "silaskael",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "commitHelper.generate",
+        "title": "%command.generate%",
+        "category": "CommitCraft",
+        "icon": {
+          "light": "resources/toolbar-light.svg",
+          "dark": "resources/toolbar.svg"
+        }
+      },
+      {
+        "command": "commitHelper.quickGenerate",
+        "title": "%command.quickGenerate%",
+        "category": "CommitCraft",
+        "icon": {
+          "light": "resources/toolbar-light.svg",
+          "dark": "resources/toolbar.svg"
+        }
+      },
+      {
+        "command": "commitHelper.configureFields",
+        "title": "%command.configureFields%",
+        "category": "CommitCraft",
+        "icon": "$(settings-gear)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "commitHelper.generate",
+          "when": "scmProvider == git",
+          "group": "navigation@10"
+        },
+        {
+          "command": "commitHelper.configureFields",
+          "when": "scmProvider == git",
+          "group": "navigation@20"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%configuration.title%",
+      "properties": {
+        "commitHelper.types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "build",
+            "ci",
+            "chore",
+            "revert"
+          ],
+          "scope": "resource",
+          "description": "%configuration.types%"
+        },
+        "commitHelper.versions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": [],
+          "scope": "resource",
+          "description": "%configuration.versions%"
+        },
+        "commitHelper.defaultVersion": {
+          "type": "string",
+          "default": "",
+          "scope": "resource",
+          "description": "%configuration.defaultVersion%"
+        },
+        "commitHelper.modules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": [],
+          "scope": "resource",
+          "description": "%configuration.modules%"
+        },
+        "commitHelper.template": {
+          "type": "string",
+          "default": "{type}({module}): {description}",
+          "scope": "resource",
+          "description": "%configuration.template%"
+        },
+        "commitHelper.rememberLastValues": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "%configuration.rememberLastValues%"
+        },
+        "commitHelper.fieldLayout": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "default": null,
+          "scope": "resource",
+          "order": 0,
+          "description": "%configuration.fieldLayout%",
+          "markdownDescription": "%configuration.fieldLayoutLink%",
+          "additionalProperties": false,
+          "properties": {
+            "fields": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 30,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "label",
+                  "input",
+                  "enabled",
+                  "required",
+                  "remember",
+                  "options",
+                  "defaultValue",
+                  "prefix",
+                  "suffix"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$"
+                  },
+                  "label": {
+                    "type": "string",
+                    "maxLength": 100
+                  },
+                  "input": {
+                    "type": "string",
+                    "enum": [
+                      "suggest",
+                      "text"
+                    ]
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "remember": {
+                    "type": "boolean"
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "defaultValue": {
+                    "type": "string"
+                  },
+                  "prefix": {
+                    "type": "string"
+                  },
+                  "suffix": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "template": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "default": null
+            }
+          },
+          "anyOf": [
+            {
+              "maxProperties": 0
+            },
+            {
+              "required": [
+                "fields",
+                "template"
+              ]
+            }
+          ],
+          "defaultSnippets": [
+            {
+              "label": "Conventional Commits",
+              "body": {
+                "fields": [
+                  {
+                    "id": "type",
+                    "label": "",
+                    "input": "suggest",
+                    "enabled": true,
+                    "required": true,
+                    "remember": true,
+                    "options": [
+                      "feat",
+                      "fix",
+                      "docs",
+                      "style",
+                      "refactor",
+                      "perf",
+                      "test",
+                      "build",
+                      "ci",
+                      "chore",
+                      "revert"
+                    ],
+                    "defaultValue": "",
+                    "prefix": "",
+                    "suffix": ""
+                  },
+                  {
+                    "id": "module",
+                    "label": "",
+                    "input": "suggest",
+                    "enabled": true,
+                    "required": false,
+                    "remember": true,
+                    "options": [],
+                    "defaultValue": "",
+                    "prefix": "(",
+                    "suffix": ")"
+                  },
+                  {
+                    "id": "description",
+                    "label": "",
+                    "input": "text",
+                    "enabled": true,
+                    "required": true,
+                    "remember": false,
+                    "options": [],
+                    "defaultValue": "",
+                    "prefix": ": ",
+                    "suffix": ""
+                  }
+                ],
+                "template": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "check": "tsc -p . --noEmit",
+    "test": "npm run compile && node --test test/workflow.test.cjs test/history.test.cjs test/composer.test.cjs test/i18n.test.cjs test/commit.test.cjs test/fields.test.cjs test/field-editor.test.cjs",
+    "test:ui": "npm run compile && node scripts/test-ui.cjs",
+    "test:integration": "npm run compile && node scripts/integration.cjs",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package --no-dependencies --allow-missing-repository --readme-path marketplace/README.md --out dist/",
+    "test:fields-ui": "npm run compile && node scripts/test-fields-ui.cjs"
+  },
+  "devDependencies": {
+    "@types/node": "18.19.130",
+    "@types/vscode": "1.85.0",
+    "@vscode/vsce": "4.1.0",
+    "playwright": "1.62.1",
+    "typescript": "5.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Taooa/CommitCraft.git"
+  },
+  "homepage": "https://github.com/Taooa/CommitCraft#readme",
+  "bugs": {
+    "url": "https://github.com/Taooa/CommitCraft/issues"
+  }
+}
