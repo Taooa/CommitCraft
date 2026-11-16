@@ -10,4 +10,5 @@ docs/archive/
 dist-old-artifact
 
 stale-*.vsix
+dist-old-artifact-*
 

@@ -17,4 +17,5 @@ README.md
 dist-old-artifact
 
 stale-*.vsix
+dist-old-artifact-*
 
